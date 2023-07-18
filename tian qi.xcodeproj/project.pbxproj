@@ -16,6 +16,7 @@
 		188776152A63C46000F26127 /* tian_qiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776142A63C46000F26127 /* tian_qiTests.swift */; };
 		1887761F2A63C46000F26127 /* tian_qiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887761E2A63C46000F26127 /* tian_qiUITests.swift */; };
 		188776212A63C46000F26127 /* tian_qiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */; };
+		18C3C3682A66CB1F00319141 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3C3672A66CB1F00319141 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1887761A2A63C46000F26127 /* tian qiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tian qiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887761E2A63C46000F26127 /* tian_qiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITests.swift; sourceTree = "<group>"; };
 		188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		18C3C3672A66CB1F00319141 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				188775FF2A63C45F00F26127 /* ContentView.swift */,
 				188776012A63C46000F26127 /* Assets.xcassets */,
 				188776062A63C46000F26127 /* Persistence.swift */,
+				18C3C3672A66CB1F00319141 /* ViewModel.swift */,
 				1887760B2A63C46000F26127 /* Info.plist */,
 				188776082A63C46000F26127 /* tian_qi.xcdatamodeld */,
 				188776032A63C46000F26127 /* Preview Content */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C3C3682A66CB1F00319141 /* ViewModel.swift in Sources */,
 				188776072A63C46000F26127 /* Persistence.swift in Sources */,
 				1887760A2A63C46000F26127 /* tian_qi.xcdatamodeld in Sources */,
 				188776002A63C45F00F26127 /* ContentView.swift in Sources */,
