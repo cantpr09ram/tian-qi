@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182A655A2A67BC550046673F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A65592A67BC550046673F /* Weather.swift */; };
+		182A655C2A67BDE30046673F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A655B2A67BDE30046673F /* MainView.swift */; };
 		188775FE2A63C45F00F26127 /* tian_qiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188775FD2A63C45F00F26127 /* tian_qiApp.swift */; };
 		188776002A63C45F00F26127 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188775FF2A63C45F00F26127 /* ContentView.swift */; };
 		188776022A63C46000F26127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188776012A63C46000F26127 /* Assets.xcassets */; };
 		188776052A63C46000F26127 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188776042A63C46000F26127 /* Preview Assets.xcassets */; };
-		188776072A63C46000F26127 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776062A63C46000F26127 /* Persistence.swift */; };
-		1887760A2A63C46000F26127 /* tian_qi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 188776082A63C46000F26127 /* tian_qi.xcdatamodeld */; };
 		188776152A63C46000F26127 /* tian_qiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776142A63C46000F26127 /* tian_qiTests.swift */; };
 		1887761F2A63C46000F26127 /* tian_qiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887761E2A63C46000F26127 /* tian_qiUITests.swift */; };
 		188776212A63C46000F26127 /* tian_qiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */; };
-		18C3C3682A66CB1F00319141 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3C3672A66CB1F00319141 /* ViewModel.swift */; };
+		18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3C3672A66CB1F00319141 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,20 +37,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182A65592A67BC550046673F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		182A655B2A67BDE30046673F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		188775FA2A63C45F00F26127 /* tian qi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tian qi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		188775FD2A63C45F00F26127 /* tian_qiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiApp.swift; sourceTree = "<group>"; };
 		188775FF2A63C45F00F26127 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		188776012A63C46000F26127 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		188776042A63C46000F26127 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		188776062A63C46000F26127 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		188776092A63C46000F26127 /* tian_qi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tian_qi.xcdatamodel; sourceTree = "<group>"; };
-		1887760B2A63C46000F26127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188776102A63C46000F26127 /* tian qiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tian qiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		188776142A63C46000F26127 /* tian_qiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiTests.swift; sourceTree = "<group>"; };
 		1887761A2A63C46000F26127 /* tian qiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tian qiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887761E2A63C46000F26127 /* tian_qiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITests.swift; sourceTree = "<group>"; };
 		188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		18C3C3672A66CB1F00319141 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		18C3C3672A66CB1F00319141 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +102,10 @@
 			children = (
 				188775FD2A63C45F00F26127 /* tian_qiApp.swift */,
 				188775FF2A63C45F00F26127 /* ContentView.swift */,
+				182A655B2A67BDE30046673F /* MainView.swift */,
 				188776012A63C46000F26127 /* Assets.xcassets */,
-				188776062A63C46000F26127 /* Persistence.swift */,
-				18C3C3672A66CB1F00319141 /* ViewModel.swift */,
-				1887760B2A63C46000F26127 /* Info.plist */,
-				188776082A63C46000F26127 /* tian_qi.xcdatamodeld */,
+				18C3C3672A66CB1F00319141 /* DataModel.swift */,
+				182A65592A67BC550046673F /* Weather.swift */,
 				188776032A63C46000F26127 /* Preview Content */,
 			);
 			path = "tian qi";
@@ -268,10 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18C3C3682A66CB1F00319141 /* ViewModel.swift in Sources */,
-				188776072A63C46000F26127 /* Persistence.swift in Sources */,
-				1887760A2A63C46000F26127 /* tian_qi.xcdatamodeld in Sources */,
+				182A655A2A67BC550046673F /* Weather.swift in Sources */,
+				18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */,
 				188776002A63C45F00F26127 /* ContentView.swift in Sources */,
+				182A655C2A67BDE30046673F /* MainView.swift in Sources */,
 				188775FE2A63C45F00F26127 /* tian_qiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,19 +595,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		188776082A63C46000F26127 /* tian_qi.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				188776092A63C46000F26127 /* tian_qi.xcdatamodel */,
-			);
-			currentVersion = 188776092A63C46000F26127 /* tian_qi.xcdatamodel */;
-			path = tian_qi.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 188775F22A63C45F00F26127 /* Project object */;
 }
