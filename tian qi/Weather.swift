@@ -16,12 +16,28 @@ struct WeatherRecords: Codable {
     var location: [Location]
 }
 
-struct Location: Codable {
+struct Location: Codable, Hashable{
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(locationName)
+    }
+        
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.locationName == rhs.locationName
+    }
+    
     var locationName: String
     var weatherElement: [WeatherElement]
 }
 
 struct WeatherElement: Codable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(elementName)
+    }
+        
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.elementName == rhs.elementName
+    }
+    
     var elementName: String
     var time: [Time]
 }

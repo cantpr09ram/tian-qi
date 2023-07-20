@@ -68,7 +68,7 @@ struct MainView: View {
             }
         }
         .onAppear {
-            dataModel.fetch()
+            dataModel.fetch(now: "台北市")
         }
     }
 }

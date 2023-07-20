@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct tian_qiApp: App {
-
+    @StateObject private var FetchData = DataModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Test()
         }
     }
 }
