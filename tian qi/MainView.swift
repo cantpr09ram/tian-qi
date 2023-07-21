@@ -20,6 +20,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func requestLocation() {
+        manager.requestWhenInUseAuthorization()
         manager.requestLocation()
     }
 
@@ -43,23 +44,15 @@ struct MainView: View {
     var body: some View {
         VStack {
             if let location = locationManager.location {
-                Text("Your location: \(location.latitude), \(location.longitude)")
+                Text("Your location: \(location.latitude), \(abs(location.longitude))")
             }
-
-            LocationButton {
-                locationManager.requestLocation()
-            }
-            .frame(height: 44)
-            .padding()
+        }
+        .onAppear{
+            locationManager.requestLocation()
         }
     }
 }
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+ 
 
 /*
  WX:天氣狀況
