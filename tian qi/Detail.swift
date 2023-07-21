@@ -8,18 +8,36 @@
 import SwiftUI
 
 struct Detail: View {
-    var Wx: String
-    var PoP: String
-    var MaxT:String
-    var MinT: String
+    @StateObject private var dataModel = DataModel()
+    var locationName : String
     
     var body: some View {
-      Text("hello world")
+        if let currentweather = dataModel.currentweather {
+            HStack {
+                VStack {
+                    Text(verbatim:"\(String(describing: currentweather.locationName))")
+                        .font(.title)
+                    Text(verbatim:"\(String(describing: currentweather.Wx))")
+                        .font(.subheadline)
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 50))
+                VStack {
+                    Text(verbatim:"H:\(String(describing: currentweather.MaxT)) L:\(String(describing: currentweather.MinT))")
+                }
+            }
+            .onAppear{
+                dataModel.fetchLocation(locationName: locationName)
+            }
+        }else{
+            Text("Loading...")
+            Text(verbatim:"\(String(describing: dataModel.currentweather?.locationName))")
+        }
     }
 }
 
 struct Detail_Previews: PreviewProvider {
+    static var name = "新北市"
     static var previews: some View {
-        Detail(Wx: "summy", PoP: "20", MaxT: "30", MinT: "20")
+        Detail(locationName: name)
     }
 }

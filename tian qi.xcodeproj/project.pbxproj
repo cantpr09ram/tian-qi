@@ -20,6 +20,7 @@
 		188C14132A69375300FC01B5 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C14122A69375300FC01B5 /* Detail.swift */; };
 		188C14152A693C5E00FC01B5 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C14142A693C5E00FC01B5 /* Row.swift */; };
 		18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3C3672A66CB1F00319141 /* DataModel.swift */; };
+		18EC150D2A6A2B9E00E8316C /* ViewLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC150C2A6A2B9E00E8316C /* ViewLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		188C14122A69375300FC01B5 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		188C14142A693C5E00FC01B5 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		18C3C3672A66CB1F00319141 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		18EC150C2A6A2B9E00E8316C /* ViewLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				188775FD2A63C45F00F26127 /* tian_qiApp.swift */,
 				188775FF2A63C45F00F26127 /* ContentView.swift */,
 				182A655B2A67BDE30046673F /* MainView.swift */,
+				18EC150C2A6A2B9E00E8316C /* ViewLocation.swift */,
 				188C14122A69375300FC01B5 /* Detail.swift */,
 				182CE3A02A69301000B1F675 /* Test.swift */,
 				188C14142A693C5E00FC01B5 /* Row.swift */,
@@ -277,6 +280,7 @@
 			files = (
 				182A655A2A67BC550046673F /* Weather.swift in Sources */,
 				188C14132A69375300FC01B5 /* Detail.swift in Sources */,
+				18EC150D2A6A2B9E00E8316C /* ViewLocation.swift in Sources */,
 				18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */,
 				188776002A63C45F00F26127 /* ContentView.swift in Sources */,
 				188C14152A693C5E00FC01B5 /* Row.swift in Sources */,

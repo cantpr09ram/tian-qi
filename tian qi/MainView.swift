@@ -6,73 +6,54 @@
 //
 
 import SwiftUI
+import CoreLocation
+import _CoreLocationUI_SwiftUI
 
-struct WeatherNow {
-    var StartTime : String
-    var endTime : String
-    var wx : String
-    var MinT : String
-    var MaxT : String
-    var Ci : String
-}
+class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    let manager = CLLocationManager()
 
-struct MainView: View {
-    @StateObject private var dataModel = DataModel()
-    @State private var maxTemperature = "0"
-    
-    
-    let now = "新北市"
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                if let weather = dataModel.weather {
-                    ForEach(weather.records.location, id: \.locationName) { location in
-                        if location.locationName == now {
-                            Text("\(location.locationName)")
-                            let weatherdata = location
-                            ForEach(weatherdata.weatherElement, id: \.elementName) { element in
-                                if element.elementName == "Wx" {
-                                    if let wx = element.time.first?.parameter.parameterName {
-                                        Text(verbatim: "\(element.time.first!.startTime) ~ \(element.time.first!.endTime)")
-                                            .font(.subheadline)
-                                        Text("\(wx)")
-                                    }
-                                }
-                                if element.elementName == "PoP" {
-                                    if let PoP = element.time.first?.parameter.parameterName{
-                                        Text("降雨: \(PoP) %")
-                                    }
-                                }
-                                if element.elementName == "MinT" {
-                                    if let temperature = element.time.first?.parameter.parameterName,
-                                       let unit = element.time.first?.parameter.parameterUnit {
-                                        Text("最低溫: \(temperature) \(unit)")
-                                    }
-                                }
-                                if element.elementName == "MaxT" {
-                                    if let temperature = element.time.first?.parameter.parameterName,
-                                       let unit = element.time.first?.parameter.parameterUnit {
-                                        Text("最高溫: \(temperature) \(unit)")
-                                            .onAppear{
-                                                self.maxTemperature = maxTemperature
-                                            }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    Text("Loading...")
-                }
-            }
-        }
-        .onAppear {
-            dataModel.fetch(now: "台北市")
+    @Published var location: CLLocationCoordinate2D?
+
+    override init() {
+        super.init()
+        manager.delegate = self
+    }
+
+    func requestLocation() {
+        manager.requestLocation()
+    }
+
+    // MARK: - CLLocationManagerDelegate
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        // Handle location update errors here
+        print("Location update failed with error: \(error.localizedDescription)")
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last?.coordinate {
+            self.location = location
         }
     }
 }
 
+struct MainView: View {
+    @StateObject var locationManager = LocationManager()
+
+    var body: some View {
+        VStack {
+            if let location = locationManager.location {
+                Text("Your location: \(location.latitude), \(location.longitude)")
+            }
+
+            LocationButton {
+                locationManager.requestLocation()
+            }
+            .frame(height: 44)
+            .padding()
+        }
+    }
+}
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
