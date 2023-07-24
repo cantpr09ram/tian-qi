@@ -6,53 +6,48 @@
 //
 
 import SwiftUI
-import CoreLocation
-import _CoreLocationUI_SwiftUI
-
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    let manager = CLLocationManager()
-
-    @Published var location: CLLocationCoordinate2D?
-
-    override init() {
-        super.init()
-        manager.delegate = self
-    }
-
-    func requestLocation() {
-        manager.requestWhenInUseAuthorization()
-        manager.requestLocation()
-    }
-
-    // MARK: - CLLocationManagerDelegate
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // Handle location update errors here
-        print("Location update failed with error: \(error.localizedDescription)")
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last?.coordinate {
-            self.location = location
-        }
-    }
-}
 
 struct MainView: View {
-    @StateObject var locationManager = LocationManager()
-
+    @StateObject var locationManager = FetchLatitudeandLongitude()
+    @StateObject var viewlocation = ViewLocation()
+    @State var i: Int = 0
+    
     var body: some View {
         VStack {
             if let location = locationManager.location {
-                Text("Your location: \(location.latitude), \(abs(location.longitude))")
+                VStack {
+                    Text("Your location: \(location.latitude), \(abs(location.longitude))")
+                    //Text("\(viewlocation.City)")
+                    //Text("\(viewlocation.name)")
+                    Text("\(i)")
+                    Button("button"){
+                        self.i += 1
+                    }
+                    
+                }
+                    
             }
         }
         .onAppear{
             locationManager.requestLocation()
         }
+        .onChange(of: locationManager.location) { newLocation in
+            if let location = newLocation {
+                print("a")
+                viewlocation.fetchLocation(latitude: location.latitude, longitude: location.longitude)
+                print("a")
+                }
+            }
     }
 }
- 
+
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}
+
 
 /*
  WX:天氣狀況

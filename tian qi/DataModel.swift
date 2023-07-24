@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct CurrentWeather{
     var locationName: String?
@@ -22,6 +21,7 @@ class DataModel: ObservableObject {
     @Published var locations: [Location] = []
     @Published var currentweather: CurrentWeather?
     @Published var aaa: [WeatherElement] = []
+    @Published var test: String = "weather test"
     
     func fetch() {
         guard let url = URL(string: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C1B7677A-1F07-4D83-8DE0-A89EBF7C4258") else {
