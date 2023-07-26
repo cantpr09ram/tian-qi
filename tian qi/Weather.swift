@@ -5,51 +5,39 @@
 //  Created by bochain on 2023/7/19.
 //
 
-import Foundation
-
 struct Weather: Codable {
     var records: WeatherRecords
 }
 
 struct WeatherRecords: Codable {
-    var datasetDescription: String
-    var location: [Location]
+    var locations: [Locations]
 }
 
-struct Location: Codable, Hashable{
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(locationName)
-    }
-        
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.locationName == rhs.locationName
-    }
+struct Locations: Codable{
+    var datasetDescription: String
+    var locationsName: String
+    var location: [Location]
     
+}
+
+struct Location: Codable{
     var locationName: String
     var weatherElement: [WeatherElement]
 }
 
 struct WeatherElement: Codable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(elementName)
-    }
-        
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.elementName == rhs.elementName
-    }
-    
     var elementName: String
-    var time: [Time]
+    var description: String
+    var time: [ForecastTime]
 }
 
-struct Time: Codable {
+struct ForecastTime: Codable {
     var startTime: String
     var endTime: String
-    var parameter: Parameter
+    var elementValue: [ElementValue]
 }
 
-struct Parameter: Codable {
-    var parameterName: String
-    var parameterValue: String?
-    var parameterUnit: String?
+struct ElementValue: Codable {
+    var value: String
+    var measures: String
 }

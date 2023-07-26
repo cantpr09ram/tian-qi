@@ -9,12 +9,9 @@ import SwiftUI
 
 @main
 struct tian_qiApp: App {
-    @StateObject private var FetchData = DataModel()
-    @StateObject private var FetchLocation = ViewLocation()
     var body: some Scene {
         WindowGroup {
-            MainView()
-            //Test()
+            ContentView()
         }
     }
 }
