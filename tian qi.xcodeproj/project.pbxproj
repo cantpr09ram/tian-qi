@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		182A655A2A67BC550046673F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A65592A67BC550046673F /* Weather.swift */; };
-		182A655C2A67BDE30046673F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182A655B2A67BDE30046673F /* MainView.swift */; };
-		182CE3A12A69301000B1F675 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182CE3A02A69301000B1F675 /* Test.swift */; };
-		182F6E332A6E4E030040B02C /* LocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F6E322A6E4E030040B02C /* LocationTest.swift */; };
-		18457A322A6E646D00E03039 /* FetchLatitudeandLongitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18457A312A6E646D00E03039 /* FetchLatitudeandLongitude.swift */; };
 		188775FE2A63C45F00F26127 /* tian_qiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188775FD2A63C45F00F26127 /* tian_qiApp.swift */; };
 		188776002A63C45F00F26127 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188775FF2A63C45F00F26127 /* ContentView.swift */; };
 		188776022A63C46000F26127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188776012A63C46000F26127 /* Assets.xcassets */; };
@@ -19,10 +15,10 @@
 		188776152A63C46000F26127 /* tian_qiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776142A63C46000F26127 /* tian_qiTests.swift */; };
 		1887761F2A63C46000F26127 /* tian_qiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887761E2A63C46000F26127 /* tian_qiUITests.swift */; };
 		188776212A63C46000F26127 /* tian_qiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */; };
-		188C14132A69375300FC01B5 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C14122A69375300FC01B5 /* Detail.swift */; };
-		188C14152A693C5E00FC01B5 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C14142A693C5E00FC01B5 /* Row.swift */; };
 		18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3C3672A66CB1F00319141 /* DataModel.swift */; };
-		18EC150D2A6A2B9E00E8316C /* ViewLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC150C2A6A2B9E00E8316C /* ViewLocation.swift */; };
+		18D29CE02A70A9810075A548 /* CurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29CDF2A70A9810075A548 /* CurrentView.swift */; };
+		18D29CE22A70AADB0075A548 /* CurrentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29CE12A70AADB0075A548 /* CurrentDetail.swift */; };
+		18D29CE42A70ADD40075A548 /* FetchLatitudeandLongitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29CE32A70ADD40075A548 /* FetchLatitudeandLongitude.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +40,6 @@
 
 /* Begin PBXFileReference section */
 		182A65592A67BC550046673F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		182A655B2A67BDE30046673F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		182CE3A02A69301000B1F675 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		182F6E322A6E4E030040B02C /* LocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTest.swift; sourceTree = "<group>"; };
-		18457A312A6E646D00E03039 /* FetchLatitudeandLongitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLatitudeandLongitude.swift; sourceTree = "<group>"; };
 		188775FA2A63C45F00F26127 /* tian qi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tian qi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		188775FD2A63C45F00F26127 /* tian_qiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiApp.swift; sourceTree = "<group>"; };
 		188775FF2A63C45F00F26127 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,10 +50,10 @@
 		1887761A2A63C46000F26127 /* tian qiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tian qiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887761E2A63C46000F26127 /* tian_qiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITests.swift; sourceTree = "<group>"; };
 		188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		188C14122A69375300FC01B5 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
-		188C14142A693C5E00FC01B5 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		18C3C3672A66CB1F00319141 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		18EC150C2A6A2B9E00E8316C /* ViewLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLocation.swift; sourceTree = "<group>"; };
+		18D29CDF2A70A9810075A548 /* CurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentView.swift; sourceTree = "<group>"; };
+		18D29CE12A70AADB0075A548 /* CurrentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetail.swift; sourceTree = "<group>"; };
+		18D29CE32A70ADD40075A548 /* FetchLatitudeandLongitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchLatitudeandLongitude.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,16 +106,12 @@
 			children = (
 				188775FD2A63C45F00F26127 /* tian_qiApp.swift */,
 				188775FF2A63C45F00F26127 /* ContentView.swift */,
-				182A655B2A67BDE30046673F /* MainView.swift */,
-				18457A312A6E646D00E03039 /* FetchLatitudeandLongitude.swift */,
-				182F6E322A6E4E030040B02C /* LocationTest.swift */,
-				18EC150C2A6A2B9E00E8316C /* ViewLocation.swift */,
-				188C14122A69375300FC01B5 /* Detail.swift */,
-				182CE3A02A69301000B1F675 /* Test.swift */,
-				188C14142A693C5E00FC01B5 /* Row.swift */,
-				188776012A63C46000F26127 /* Assets.xcassets */,
 				18C3C3672A66CB1F00319141 /* DataModel.swift */,
 				182A65592A67BC550046673F /* Weather.swift */,
+				18D29CDF2A70A9810075A548 /* CurrentView.swift */,
+				18D29CE12A70AADB0075A548 /* CurrentDetail.swift */,
+				18D29CE32A70ADD40075A548 /* FetchLatitudeandLongitude.swift */,
+				188776012A63C46000F26127 /* Assets.xcassets */,
 				188776032A63C46000F26127 /* Preview Content */,
 			);
 			path = "tian qi";
@@ -284,17 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D29CE22A70AADB0075A548 /* CurrentDetail.swift in Sources */,
 				182A655A2A67BC550046673F /* Weather.swift in Sources */,
-				188C14132A69375300FC01B5 /* Detail.swift in Sources */,
-				18EC150D2A6A2B9E00E8316C /* ViewLocation.swift in Sources */,
 				18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */,
 				188776002A63C45F00F26127 /* ContentView.swift in Sources */,
-				188C14152A693C5E00FC01B5 /* Row.swift in Sources */,
-				182A655C2A67BDE30046673F /* MainView.swift in Sources */,
-				18457A322A6E646D00E03039 /* FetchLatitudeandLongitude.swift in Sources */,
+				18D29CE02A70A9810075A548 /* CurrentView.swift in Sources */,
+				18D29CE42A70ADD40075A548 /* FetchLatitudeandLongitude.swift in Sources */,
 				188775FE2A63C45F00F26127 /* tian_qiApp.swift in Sources */,
-				182F6E332A6E4E030040B02C /* LocationTest.swift in Sources */,
-				182CE3A12A69301000B1F675 /* Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
