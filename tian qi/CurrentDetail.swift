@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct CurrentDetail: View {
-    var temperature: Int
+    var temperature: String
     var Wx:String
-    var location: String
-    var MaxT: Int
-    var MinT: Int
+    var MaxT: String
+    var MinT: String
     
     var body: some View {
         VStack{
-            Text(location)
             Text("\(temperature)")
-                .font(.system(size: 90))
+                .font(.system(size: 150))
             Text(Wx)
             HStack{
                 Text("H: \(MaxT)")
@@ -31,11 +29,10 @@ struct CurrentDetail: View {
 struct CurrentDetail_Previews: PreviewProvider {
     static var previews: some View {
         CurrentDetail(
-            temperature: 30,
+            temperature: "30",
             Wx: "多雲",
-            location:"淡水",
-            MaxT: 33,
-            MinT: 20
+            MaxT: "33",
+            MinT: "20"
         )
     }
 }
