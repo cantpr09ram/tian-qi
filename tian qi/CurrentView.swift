@@ -35,6 +35,11 @@ struct CurrentView: View {
                     } else {
                         Text("Loading...")
                     }
+                    if fetchdata.hazardList.count > 0{
+                        HazardView(
+                            hazardlist: Array(fetchdata.hazardList)
+                        )
+                    }
                     Spacer()
                     if fetchdata.forecastData.count >= 5 && fetchdata.labels.count >= 5 {
                         CurrentForecast(
@@ -51,7 +56,8 @@ struct CurrentView: View {
         .task {
             if fetchdata.forecastData.isEmpty {
                 do {
-                    try await fetchdata.fetch()
+                    try await fetchdata.fetch2Day(); fetchdata.fetchHazard()
+                    
                 }catch {
                     self.error = error
                     showError = true

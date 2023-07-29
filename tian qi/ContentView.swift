@@ -30,7 +30,8 @@ struct ContentView: View {
                 }
                 .tag(Tab.list)
         }.onAppear{
-            fetchdata.fetch()
+            fetchdata.fetch2Day()
+            fetchdata.fetchHazard()
         }
     }
 }

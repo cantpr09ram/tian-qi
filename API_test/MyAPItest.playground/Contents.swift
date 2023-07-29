@@ -1,48 +1,54 @@
 import Foundation
 
-struct Weather: Codable {
-    var records: WeatherRecords
+struct ResponseData: Codable {
+    let success: String
+    let result: Result
+    let records: Records
 }
 
-struct WeatherRecords: Codable {
-    var locations: [Locations]
+struct Result: Codable {
+    let resource_id: String
+    let fields: [Field]
 }
 
-struct Locations: Codable{
-    var datasetDescription: String
-    var locationsName: String
-    var location: [Location]
+struct Field: Codable {
+    let id: String
+    let type: String
+}
+
+struct Records: Codable {
+    let location: [Location]
+}
+
+struct Location: Codable {
+    let locationName: String
+    let geocode: Double
+    let hazardConditions: HazardConditions
+}
+
+struct HazardConditions: Codable {
+    let hazards: [HazardInfo]
+}
+
+struct HazardInfo: Codable {
+    struct Info: Codable {
+        let language: String
+        let phenomena: String
+        let significance: String
+    }
     
+    struct ValidTime: Codable {
+        let startTime: String
+        let endTime: String
+    }
+    
+    let info: Info
+    let validTime: ValidTime
 }
 
-struct Location: Codable{
-    var locationName: String
-    var weatherElement: [WeatherElement]
-}
-
-struct WeatherElement: Codable {
-    var elementName: String
-    var description: String
-    var time: [ForecastTime]
-}
-
-struct ForecastTime: Codable {
-    var startTime: String
-    var endTime: String
-    var elementValue: [ElementValue]
-}
-
-struct ElementValue: Codable {
-    var value: String
-    var measures: String
-}
-
-var forecastData: [String] = []
-var labels: [String] = []
-
-var request = URLRequest(url: URL(string: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-069?Authorization=CWB-C1B7677A-1F07-4D83-8DE0-A89EBF7C4258&format=JSON&locationId=F-D0047-071&locationName=%E6%B7%A1%E6%B0%B4%E5%8D%80&elementName=WeatherDescription")!,timeoutInterval: Double.infinity)
+var request = URLRequest(url: URL(string: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/W-C0033-001?Authorization=CWB-C1B7677A-1F07-4D83-8DE0-A89EBF7C4258&locationName=%E6%96%B0%E5%8C%97%E5%B8%82")!,timeoutInterval: Double.infinity)
 request.addValue("application/json", forHTTPHeaderField: "accept")
-request.addValue("TS01a5ae52=0107dddfef9e7bce02505436a2c8d666308ada74dacd618e24ac0f4f14aab5814dc7131309872f99a4f9d0609c823e3ccc6f77852b", forHTTPHeaderField: "Cookie")
+request.addValue("TS01a5ae52=0107dddfef8722b8017a7a3e1534d9cdf5a189e1d330d1baa73da3ee4313a7b9097e3df4b62f2667a9b8abc2d6169d58d6cc1320fb", forHTTPHeaderField: "Cookie")
 
 request.httpMethod = "GET"
 
@@ -51,39 +57,32 @@ let task = URLSession.shared.dataTask(with: request) { data, response, error in
     print(String(describing: error))
     return
   }
-    
+    //print(data)
     do {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let weatherData = try decoder.decode(Weather.self, from: data)
+        let responseData = try decoder.decode(ResponseData.self, from: data)
         
-        DispatchQueue.main.async {
-            for locations in weatherData.records.locations {
-                for location in locations.location{
-                    for weatherElement in location.weatherElement {
-                        if weatherElement.elementName == "WeatherDescription" {
-                            for forecastTime in weatherElement.time {
-                                for elementValue in forecastTime.elementValue {
-                                    // Extract temperature and probability of precipitation data
-                                    if elementValue.measures == "NA" {
-                                        forecastData.append(elementValue.value)
-                                    }
-                                    // Use startTime as the label for the x-axis
-                                    labels.append(forecastTime.startTime)
-                                }
-                            }
-                        }
-                    }
+        for location in responseData.records.location {
+            let locationName = location.locationName
+            let geocode = location.geocode
+            if location.hazardConditions.hazards.count > 0{
+                for hazardInfo in location.hazardConditions.hazards {
+                    let language = hazardInfo.info.language
+                    let phenomena = hazardInfo.info.phenomena
+                    let significance = hazardInfo.info.significance
+                    let startTime = hazardInfo.validTime.startTime
+                    let endTime = hazardInfo.validTime.endTime
+                    print(phenomena, significance, startTime, endTime)
+                        // Now you can use the extracted data as needed
+                        // For example, you can display it on the screen or perform any other operations.
                 }
             }
-            print(forecastData[0])
-            print(labels[0])
         }
-    }catch {
-        print("Error decoding data: \(error)")
+            
+    } catch {
+        print("Error decoding JSON: \(error)")
     }
-    
-    //print(String(data: data, encoding: .utf8)!)
+
 }
 
 task.resume()
