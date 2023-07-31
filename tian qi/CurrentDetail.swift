@@ -19,8 +19,8 @@ struct CurrentDetail: View {
                 .font(.system(size: 150))
             Text(Wx)
             HStack{
-                Text("H: \(MaxT)")
-                Text("L: \(MinT)")
+                Text("H: \(MaxT)°")
+                Text("L: \(MinT)°")
             }
         }
     }

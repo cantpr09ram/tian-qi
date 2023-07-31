@@ -16,10 +16,10 @@ struct ForecastDetail: View {
     func Text2Pic(Wx: String) ->String{
         var pic = "xmark.icloud.fill"
         switch Wx {
-        case"晴天":
+        case"晴天", "晴":
             pic = "sun.min"
         case"晴時多雲","多雲時晴","多雲","多雲時陰","陰時多雲","陰天":
-            pic = "cloud"
+            pic = "cloud.fill"
         case"多雲陣雨",
             "多雲短暫雨",
             "多雲短暫陣雨",
@@ -81,7 +81,7 @@ struct ForecastDetail: View {
             "陰時多雲局部陣雨",
             "陰時多雲局部短暫雨",
             "陰時多雲局部短暫陣雨":
-            pic = "cloud.drizzle"
+            pic = "cloud.drizzle.fill"
         case "多雲時晴午後短暫陣雨",
             "晴午後多雲局部雨",
             "晴午後多雲局部陣雨",
@@ -97,10 +97,10 @@ struct ForecastDetail: View {
             "晴午後短暫雨",
             "晴午後短暫陣雨",
             "晴時多雲午後短暫陣雨":
-            pic = "cloud.sun.rain"
+            pic = "cloud.sun.rain.fill"
         case"雨天",
             "有雨":
-            pic = "cloud.rain"
+            pic = "cloud.rain.fill"
         case"多雲陣雨或雷雨",
             "多雲短暫陣雨或雷雨",
             "多雲短暫雷陣雨",
@@ -147,7 +147,7 @@ struct ForecastDetail: View {
             "多雲時陰午後短暫雷陣雨",
             "陰時多雲午後短暫雷陣雨",
             "陰午後短暫雷陣雨":
-            pic = "cloud.bolt.rain"
+            pic = "cloud.bolt.rain.fill"
         case"晴午後多雲陣雨或雷雨",
             "晴午後多雲雷陣雨",
             "晴午後陣雨或雷雨",
@@ -172,7 +172,7 @@ struct ForecastDetail: View {
             "多雲午後短暫雷陣雨",
             "多雲午後雷陣雨"
             :
-            pic = "cloud.sun.bolt"
+            pic = "cloud.sun.bolt.fill"
         case"多雲局部陣雨或雪",
             "多雲時陰有雨或雪",
             "多雲時陰短暫雨或雪",
@@ -214,7 +214,7 @@ struct ForecastDetail: View {
             "下雪",
             "積冰",
             "暴風雪":
-            pic = "cloud.snow"
+            pic = "cloud.snow.fill"
         case"晴有霧",
             "晴晨霧",
             "晴時多雲有霧",
@@ -231,7 +231,7 @@ struct ForecastDetail: View {
             "多雲時陰晨霧",
             "陰時多雲有霧",
             "陰時多雲晨霧":
-            pic = "cloud.fog"
+            pic = "cloud.fog.fill"
         case"陰":
             pic = "wind"
         
@@ -251,9 +251,9 @@ struct ForecastDetail: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30, height: 30)
-            Text(PoP)
+            Text(PoP+"%")
                 .font(.system(size: 10))
-            Text(temperature)
+            Text(temperature+"°")
                 .font(.system(size: 20))
         }
     }

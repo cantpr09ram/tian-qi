@@ -27,7 +27,6 @@ struct CurrentView: View {
                     if let currentData = fetchdata.forecastData.first?.split(separator: "。"){
                         CurrentDetail(
                             temperature: currentData[2].filter("0123456789.".contains) as String,
-                            //Wx: "hello",
                             Wx: String(currentData[0]),
                             MaxT: "33",
                             MinT: "20"
@@ -50,6 +49,7 @@ struct CurrentView: View {
                     } else {
                         //Text("Loading...")
                     }
+                    
                 }
             }
         }

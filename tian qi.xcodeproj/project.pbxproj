@@ -19,6 +19,9 @@
 		188776152A63C46000F26127 /* tian_qiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776142A63C46000F26127 /* tian_qiTests.swift */; };
 		1887761F2A63C46000F26127 /* tian_qiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887761E2A63C46000F26127 /* tian_qiUITests.swift */; };
 		188776212A63C46000F26127 /* tian_qiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */; };
+		18B5DB8F2A77BC5300A2289F /* weekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DB8E2A77BC5300A2289F /* weekView.swift */; };
+		18B5DB912A77BF5F00A2289F /* WeekDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DB902A77BF5F00A2289F /* WeekDetail.swift */; };
+		18B5DB932A77BF7800A2289F /* WeekList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5DB922A77BF7800A2289F /* WeekList.swift */; };
 		18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C3C3672A66CB1F00319141 /* DataModel.swift */; };
 		18D29CE02A70A9810075A548 /* CurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29CDF2A70A9810075A548 /* CurrentView.swift */; };
 		18D29CE22A70AADB0075A548 /* CurrentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29CE12A70AADB0075A548 /* CurrentDetail.swift */; };
@@ -58,6 +61,9 @@
 		1887761A2A63C46000F26127 /* tian qiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tian qiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1887761E2A63C46000F26127 /* tian_qiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITests.swift; sourceTree = "<group>"; };
 		188776202A63C46000F26127 /* tian_qiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tian_qiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		18B5DB8E2A77BC5300A2289F /* weekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekView.swift; sourceTree = "<group>"; };
+		18B5DB902A77BF5F00A2289F /* WeekDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDetail.swift; sourceTree = "<group>"; };
+		18B5DB922A77BF7800A2289F /* WeekList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekList.swift; sourceTree = "<group>"; };
 		18C3C3672A66CB1F00319141 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		18D29CDF2A70A9810075A548 /* CurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentView.swift; sourceTree = "<group>"; };
 		18D29CE12A70AADB0075A548 /* CurrentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDetail.swift; sourceTree = "<group>"; };
@@ -114,17 +120,20 @@
 			children = (
 				188775FD2A63C45F00F26127 /* tian_qiApp.swift */,
 				188775FF2A63C45F00F26127 /* ContentView.swift */,
-				18C3C3672A66CB1F00319141 /* DataModel.swift */,
-				182A65592A67BC550046673F /* Weather.swift */,
 				18D29CDF2A70A9810075A548 /* CurrentView.swift */,
-				1810AC772A72081F0078CD70 /* CurrentForecast.swift */,
-				180D21152A739917007D865C /* Hazard.swift */,
-				1810AC792A7208D00078CD70 /* ForecastDetail.swift */,
+				18B5DB8E2A77BC5300A2289F /* weekView.swift */,
+				18B5DB902A77BF5F00A2289F /* WeekDetail.swift */,
+				18B5DB922A77BF7800A2289F /* WeekList.swift */,
 				18D29CE12A70AADB0075A548 /* CurrentDetail.swift */,
+				1810AC772A72081F0078CD70 /* CurrentForecast.swift */,
+				1810AC792A7208D00078CD70 /* ForecastDetail.swift */,
+				180D21152A739917007D865C /* Hazard.swift */,
+				180D21172A739EBD007D865C /* HazardView.swift */,
+				182A65592A67BC550046673F /* Weather.swift */,
+				18C3C3672A66CB1F00319141 /* DataModel.swift */,
 				18D29CE32A70ADD40075A548 /* FetchLatitudeandLongitude.swift */,
 				188776012A63C46000F26127 /* Assets.xcassets */,
 				188776032A63C46000F26127 /* Preview Content */,
-				180D21172A739EBD007D865C /* HazardView.swift */,
 			);
 			path = "tian qi";
 			sourceTree = "<group>";
@@ -292,7 +301,10 @@
 				18C3C3682A66CB1F00319141 /* DataModel.swift in Sources */,
 				188776002A63C45F00F26127 /* ContentView.swift in Sources */,
 				18D29CE02A70A9810075A548 /* CurrentView.swift in Sources */,
+				18B5DB8F2A77BC5300A2289F /* weekView.swift in Sources */,
+				18B5DB932A77BF7800A2289F /* WeekList.swift in Sources */,
 				180D21162A739917007D865C /* Hazard.swift in Sources */,
+				18B5DB912A77BF5F00A2289F /* WeekDetail.swift in Sources */,
 				18D29CE42A70ADD40075A548 /* FetchLatitudeandLongitude.swift in Sources */,
 				188775FE2A63C45F00F26127 /* tian_qiApp.swift in Sources */,
 			);
