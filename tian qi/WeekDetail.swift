@@ -11,10 +11,17 @@ struct WeekDetail: View {
     var MaxT: String
     var MinT: String
     var Wx: String
-    var Time: String
+    var StartTime: String
+    var EndTime: String
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Text(Wx)
+            HStack{
+                Text(MaxT)
+                Text(MinT)
+            }
+        }
     }
 }
 
@@ -24,7 +31,8 @@ struct WeekDetail_Previews: PreviewProvider {
             MaxT: "30",
             MinT: "20",
             Wx: "陰",
-            Time: "2023-08-01 18:00:00"
+            StartTime: "2023-08-01 06:00:00",
+            EndTime: "2023-08-01 18:00:00"
         )
     }
 }

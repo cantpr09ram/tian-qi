@@ -18,38 +18,42 @@ struct CurrentView: View {
     var townName:String = ""
     
     var body: some View {
-        NavigationView  {
-            ScrollView{
-                VStack{
-                    Spacer()
-                    Text(townName)
-                        .font(.system(size: 30))
-                    if let currentData = fetchdata.forecastData.first?.split(separator: "。"){
-                        CurrentDetail(
-                            temperature: currentData[2].filter("0123456789.".contains) as String,
-                            Wx: String(currentData[0]),
-                            MaxT: "33",
-                            MinT: "20"
-                        )
-                    } else {
-                        Text("Loading...")
+        NavigationStack  {
+            List{
+                ScrollView{
+                    Section{
+                        Text(townName)
+                            .font(.system(size: 30))
+                            .padding(.top, 20)
+                        if let currentData = fetchdata.forecastData.first?.split(separator: "。"){
+                            CurrentDetail(
+                                temperature: currentData[2].filter("0123456789.".contains) as String,
+                                Wx: String(currentData[0]),
+                                MaxT: "33",
+                                MinT: "20"
+                            )
+                        } else {
+                            Text("Loading...")
+                        }
                     }
+                    
                     if fetchdata.hazardList.count > 0{
                         HazardView(
                             hazardlist: Array(fetchdata.hazardList)
                         )
                     }
-                    Spacer()
-                    if fetchdata.forecastData.count >= 5 && fetchdata.labels.count >= 5 {
-                        CurrentForecast(
-                            forecastData: Array(fetchdata.forecastData),
-                            labels: Array(fetchdata.labels)
-                        )
-                        .padding()
-                    } else {
-                        //Text("Loading...")
+                   
+                    Section{
+                        if fetchdata.forecastData.count >= 5 && fetchdata.labels.count >= 5 {
+                            CurrentForecast(
+                                forecastData: Array(fetchdata.forecastData),
+                                labels: Array(fetchdata.labels)
+                            )
+                            .padding()
+                        } else {
+                            //Text("Loading...")
+                        }
                     }
-                    
                 }
             }
         }
