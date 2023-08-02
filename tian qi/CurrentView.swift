@@ -18,42 +18,53 @@ struct CurrentView: View {
     var townName:String = ""
     
     var body: some View {
-        NavigationStack  {
-            List{
-                ScrollView{
-                    Section{
-                        Text(townName)
-                            .font(.system(size: 30))
-                            .padding(.top, 20)
-                        if let currentData = fetchdata.forecastData.first?.split(separator: "。"){
-                            CurrentDetail(
-                                temperature: currentData[2].filter("0123456789.".contains) as String,
-                                Wx: String(currentData[0]),
-                                MaxT: "33",
-                                MinT: "20"
-                            )
-                        } else {
-                            Text("Loading...")
-                        }
+        
+        ScrollView{
+            VStack(alignment: .center, spacing: 5){
+                VStack{
+                    Text(townName)
+                        .font(.system(size: 30))
+                        .padding(.top, 20)
+                    if let currentData = fetchdata.forecastData.first?.split(separator: "。"){
+                        CurrentDetail(
+                            temperature: currentData[2].filter("0123456789.".contains) as String,
+                            Wx: String(currentData[0]),
+                            MaxT: "33",
+                            MinT: "20"
+                        )
+                    } else {
+                        Text("Loading...")
                     }
-                    
-                    if fetchdata.hazardList.count > 0{
+                }
+                if fetchdata.hazardList.count > 0{
+                    CustomStackView{
+                        Label{
+                            Text("天氣警報")
+                        }icon: {
+                            Image(systemName: "sos.circle")
+                        }
+                    }contentView: {
                         HazardView(
                             hazardlist: Array(fetchdata.hazardList)
                         )
                     }
-                   
-                    Section{
-                        if fetchdata.forecastData.count >= 5 && fetchdata.labels.count >= 5 {
-                            CurrentForecast(
-                                forecastData: Array(fetchdata.forecastData),
-                                labels: Array(fetchdata.labels)
-                            )
-                            .padding()
-                        } else {
-                            //Text("Loading...")
+                }
+                
+                if fetchdata.forecastData.count >= 5 && fetchdata.labels.count >= 5 {
+                    CustomStackView{
+                        Label{
+                            Text("近兩日天氣(三小時)")
+                        }icon: {
+                            Image(systemName: "chart.bar.doc.horizontal.fill")
                         }
+                    }contentView: {
+                        CurrentForecast(
+                            forecastData: Array(fetchdata.forecastData),
+                            labels: Array(fetchdata.labels)
+                        )
                     }
+                } else {
+                    //Text("Loading...")
                 }
             }
         }

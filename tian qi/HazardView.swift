@@ -24,7 +24,7 @@ struct HazardDetailView: View {
     var info: HazardInfo
     var body: some View {
         //濃霧 大雨 豪雨 大豪雨 超大豪雨 陸上強風
-        HStack(spacing: 15) {
+        HStack {
             Image(systemName: getPic(from: info.info.phenomena))
                 .resizable()
                 .scaledToFit()
