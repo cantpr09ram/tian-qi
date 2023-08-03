@@ -18,8 +18,9 @@ struct WeekDetail: View {
         HStack{
             Text(Wx)
             HStack{
-                Text(MaxT)
                 Text(MinT)
+               
+                Text(MaxT)
             }
         }
     }

@@ -13,6 +13,7 @@ struct CurrentView: View {
     @State private var error: Error?
     @State private var forecastData: [String] = []
     @State private var  labels: [String] = []
+    @State var Offset: CGFloat = 0
     
     var cityName:String = ""
     var townName:String = ""
@@ -36,19 +37,6 @@ struct CurrentView: View {
                         Text("Loading...")
                     }
                 }
-                if fetchdata.hazardList.count > 0{
-                    CustomStackView{
-                        Label{
-                            Text("天氣警報")
-                        }icon: {
-                            Image(systemName: "sos.circle")
-                        }
-                    }contentView: {
-                        HazardView(
-                            hazardlist: Array(fetchdata.hazardList)
-                        )
-                    }
-                }
                 
                 if fetchdata.forecastData.count >= 5 && fetchdata.labels.count >= 5 {
                     CustomStackView{
@@ -66,7 +54,34 @@ struct CurrentView: View {
                 } else {
                     //Text("Loading...")
                 }
+                
+                if fetchdata.hazardList.count > 0{
+                    CustomStackView{
+                        Label{
+                            Text("天氣警報")
+                        }icon: {
+                            Image(systemName: "sos.circle")
+                        }
+                    }contentView: {
+                        HazardView(
+                            hazardlist: Array(fetchdata.hazardList)
+                        )
+                    }
+                }
             }
+            //getting offset
+            .overlay(
+                //using geometry reader
+                GeometryReader {proxy -> Color in
+                    let minY = proxy.frame(in: .global).minY
+                    DispatchQueue.main.async {
+                        self.Offset = minY
+                    }
+                return Color.clear
+                    
+                }
+                
+            )
         }
         .task {
             if fetchdata.forecastData.isEmpty {

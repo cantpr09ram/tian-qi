@@ -18,21 +18,11 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView(selection: $selection) {
-            CurrentView()
-                .tabItem{
-                    Label("Featured", systemImage: "star")
-                }
-                .tag(Tab.featured)
-            CurrentView()
-                .tabItem{
-                    Label("List", systemImage: "list.bullet")
-                }
-                .tag(Tab.list)
-        }.onAppear{
-            fetchdata.fetch2Day()
-            fetchdata.fetchHazard()
-        }
+        CurrentView(cityName: "新北市", townName: "淡水區")
+        //.onAppear{
+          //  fetchdata.fetch2Day()
+            //fetchdata.fetchHazard()
+        //}
     }
 }
 
