@@ -8,15 +8,25 @@
 import SwiftUI
 
 struct ProgressBar: View {
+    var MaxT: Int
+    var minMaxT: Int
+    var maxMaxT: Int
+    var MinT: Int
+    var maxMinT: Int
+    var minMinT: Int
+    
+    
     var body: some View {
+        
         HStack {
-            //MaxT
+            //MinT
             ZStack(alignment: .bottomTrailing){
                 Rectangle()
+                    .fill(Color.gray)
                     .frame(width: 70, height: 20)
                     .overlay(
                         Rectangle()
-                            .fill(Color.black)
+                            .fill(Color.gray)
                             .frame(width: 20, height: 20)
                             .cornerRadius(20)
                             .offset(x: -35, y: 0)
@@ -25,23 +35,24 @@ struct ProgressBar: View {
                 
                 Rectangle()
                     .fill(Color.red)
-                    .frame(width: 50, height: 20)
+                    .frame(width: CGFloat(70*(maxMinT - MinT)/(maxMinT - minMinT)), height: 20)
                     .overlay(
                         Rectangle()
                             .fill(Color.red)
                             .frame(width: 20, height: 20)
                             .cornerRadius(20)
-                            .offset(x: -25, y: 0)
+                            .offset(x: CGFloat(-35*(maxMinT - MinT)/(maxMinT - minMinT)), y: 0)
                         // Adjust the offset based on your desired position
                     )
             }
-            //MinT
+            //MaxT
             ZStack(alignment: .bottomLeading){
                 Rectangle()
+                    .fill(Color.gray)
                     .frame(width: 70, height: 20)
                     .overlay(
                         Rectangle()
-                            .fill(Color.black)
+                            .fill(Color.gray)
                             .frame(width: 20, height: 20)
                             .cornerRadius(20)
                             .offset(x: 35, y: 0)
@@ -50,13 +61,13 @@ struct ProgressBar: View {
                 
                 Rectangle()
                     .fill(Color.red)
-                    .frame(width: 30, height: 20)
+                    .frame(width: CGFloat(10+80*(MaxT - minMaxT)/(maxMaxT - minMaxT)), height: 20)
                     .overlay(
                         Rectangle()
                             .fill(Color.red)
                             .frame(width: 20, height: 20)
                             .cornerRadius(20)
-                            .offset(x: 15, y: 0)
+                            .offset(x: CGFloat(10+35*(MaxT - minMaxT)/(maxMaxT - minMaxT)), y: 0)
                         // Adjust the offset based on your desired position
                     )
                     .offset(x:-10,y:0)
@@ -65,9 +76,19 @@ struct ProgressBar: View {
         .padding()
     }
     
-    struct ProgressBar_Previews: PreviewProvider {
-        static var previews: some View {
-            ProgressBar()
-        }
+}
+
+struct ProgressBar_Previews: PreviewProvider {
+    static var previews: some View {
+        ProgressBar(
+            //MaxT
+            MaxT: 32,
+            minMaxT: 30,
+            maxMaxT: 35,
+            
+            MinT: 25,
+            maxMinT: 29,
+            minMinT: 23
+        )
     }
 }
