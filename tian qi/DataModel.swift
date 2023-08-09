@@ -22,6 +22,7 @@ final class DataModel: ObservableObject {
     @Published var Wx: [String] = []
     @Published var MaxT: [String] = []
     @Published var MinT: [String] = []
+    @Published var Pop12h: [String] = []
     
     @Published var showError = false
     
@@ -112,20 +113,9 @@ final class DataModel: ObservableObject {
                 let responseData = try decoder.decode(Hazard.self, from: data)
                 self.hazard = responseData
                 for location in responseData.records.location {
-                    let locationName = location.locationName
-                    let geocode = location.geocode
                     if location.hazardConditions.hazards.count > 0{
                         self.hazardList = location.hazardConditions.hazards
-                        for hazardInfo in location.hazardConditions.hazards {
-                            let language = hazardInfo.info.language
-                            let phenomena = hazardInfo.info.phenomena
-                            let significance = hazardInfo.info.significance
-                            let startTime = hazardInfo.validTime.startTime
-                            let endTime = hazardInfo.validTime.endTime
-                            //print(phenomena, significance, startTime, endTime)
-                                // Now you can use the extracted data as needed
-                                // For example, you can display it on the screen or perform any other operations.
-                        }
+                       
                         print(self.hazardList[0])
                     }
                 }
@@ -140,9 +130,9 @@ final class DataModel: ObservableObject {
     }
     
     func fetch7Day() {
-        var request = URLRequest(url: URL(string: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-071?Authorization=CWB-C1B7677A-1F07-4D83-8DE0-A89EBF7C4258&locationName=%E6%B7%A1%E6%B0%B4%E5%8D%80&elementName=MinT%2CMaxT%2CWx")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-071?Authorization=CWB-C1B7677A-1F07-4D83-8DE0-A89EBF7C4258&locationName=%E6%B7%A1%E6%B0%B4%E5%8D%80&elementName=MinT%2CMaxT%2CWx%2CPoP12h")!,timeoutInterval: Double.infinity)
         request.addValue("application/json", forHTTPHeaderField: "accept")
-        request.addValue("TS01a5ae52=0107dddfefcc361df4e6c96cef846097a3593b13a9e1d204a0a3abe912498a931a4fdb4171e92f4eea0c5c330ff72cad25191aecb6", forHTTPHeaderField: "Cookie")
+        request.addValue("TS01a5ae52=0107dddfefee342a916fa607cb3c4574085e6a8f2f8aad5d6fe6e0b421c733b841abc5e593b937691c469fdc44c804636189f4892f", forHTTPHeaderField: "Cookie")
         
         request.httpMethod = "GET"
         print("request")
@@ -177,9 +167,10 @@ final class DataModel: ObservableObject {
                                             // Extract temperature and probability of precipitation data
                                             if elementValue.measures == "自定義 Wx 文字" {
                                                 self.Wx.append(elementValue.value)
+                                                self.labels7.append(forecastTime.startTime)
                                             }
                                             // Use startTime as the label for the x-axis
-                                            self.labels7.append(forecastTime.startTime)
+                                            //self.labels7.append(forecastTime.startTime)
                                         }
                                     }
                                 }else if weatherElement.elementName == "MaxT"{
@@ -202,12 +193,27 @@ final class DataModel: ObservableObject {
                                             // Use startTime as the label for the x-axis
                                         }
                                     }
+                                }else if weatherElement.elementName == "PoP12h"{
+                                    for forecastTime in weatherElement.time {
+                                        for elementValue in forecastTime.elementValue {
+                                            // Extract temperature and probability of precipitation data
+                                            if elementValue.measures == "百分比"{
+                                                if elementValue.value == " "{
+                                                    self.Pop12h.append("0")
+                                                }else{
+                                                    self.Pop12h.append(elementValue.value)
+                                                }
+                                            }
+                                            // Use startTime as the label for the x-axis
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                     //print(self.forecastData.prefix(5))
-                    //print(self.labels.prefix(5))
+                    print(self.labels7.count)
+                    print(self.Pop12h.count)
                 }
             }catch {
                 print("Error decoding data: \(error)")
