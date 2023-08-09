@@ -23,25 +23,25 @@ struct ProgressBar: View {
             ZStack(alignment: .bottomTrailing){
                 Rectangle()
                     .fill(Color.gray)
-                    .frame(width: 70, height: 20)
+                    .frame(width: 60, height: 10)
                     .overlay(
                         Rectangle()
                             .fill(Color.gray)
-                            .frame(width: 20, height: 20)
-                            .cornerRadius(20)
-                            .offset(x: -35, y: 0)
+                            .frame(width: 10, height: 10)
+                            .cornerRadius(10)
+                            .offset(x: -30, y: 0)
                         // Adjust the offset based on your desired position
                     )
                 
                 Rectangle()
                     .fill(Color.red)
-                    .frame(width: CGFloat(70*(maxMinT - MinT)/(maxMinT - minMinT)), height: 20)
+                    .frame(width: CGFloat(60*(maxMinT - MinT)/(maxMinT - minMinT)), height: 10)
                     .overlay(
                         Rectangle()
                             .fill(Color.red)
-                            .frame(width: 20, height: 20)
+                            .frame(width: 10, height: 10)
                             .cornerRadius(20)
-                            .offset(x: CGFloat(-35*(maxMinT - MinT)/(maxMinT - minMinT)), y: 0)
+                            .offset(x: CGFloat(-30*(maxMinT - MinT)/(maxMinT - minMinT)), y: 0)
                         // Adjust the offset based on your desired position
                     )
             }
@@ -49,25 +49,25 @@ struct ProgressBar: View {
             ZStack(alignment: .bottomLeading){
                 Rectangle()
                     .fill(Color.gray)
-                    .frame(width: 70, height: 20)
+                    .frame(width: 60, height: 10)
                     .overlay(
                         Rectangle()
                             .fill(Color.gray)
-                            .frame(width: 20, height: 20)
-                            .cornerRadius(20)
-                            .offset(x: 35, y: 0)
+                            .frame(width: 10, height: 10)
+                            .cornerRadius(10)
+                            .offset(x: 30, y: 0)
                         // Adjust the offset based on your desired position
                     )
                 
                 Rectangle()
                     .fill(Color.red)
-                    .frame(width: CGFloat(10+80*(MaxT - minMaxT)/(maxMaxT - minMaxT)), height: 20)
+                    .frame(width: CGFloat(10+70*(MaxT - minMaxT)/(maxMaxT - minMaxT)), height: 10)
                     .overlay(
                         Rectangle()
                             .fill(Color.red)
-                            .frame(width: 20, height: 20)
-                            .cornerRadius(20)
-                            .offset(x: CGFloat(10+35*(MaxT - minMaxT)/(maxMaxT - minMaxT)), y: 0)
+                            .frame(width: 10, height: 10)
+                            .cornerRadius(10)
+                            .offset(x: CGFloat(10+30*(MaxT - minMaxT)/(maxMaxT - minMaxT)), y: 0)
                         // Adjust the offset based on your desired position
                     )
                     .offset(x:-10,y:0)

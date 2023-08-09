@@ -68,6 +68,25 @@ struct CurrentView: View {
                         )
                     }
                 }
+                
+                if fetchdata.MinT.count == fetchdata.MaxT.count && fetchdata.Wx.count == fetchdata.MaxT.count && fetchdata.labels7.count == fetchdata.MaxT.count && fetchdata.MaxT.count == fetchdata.Pop12h.count && fetchdata.MaxT.count > 0{
+                    
+                    CustomStackView{
+                        Label{
+                            Text("7日預報")
+                        }icon: {
+                            Image(systemName: "tray.2")
+                        }
+                    }contentView: {
+                        weekView(
+                            MaxTlist: Array(fetchdata.MaxT),
+                            MinTlist: Array(fetchdata.MinT),
+                            labels: Array(fetchdata.labels7),
+                            Wx: Array(fetchdata.Wx),
+                            Pop: Array(fetchdata.Pop12h)
+                        )
+                    }
+                }
             }
             //getting offset
             .overlay(
@@ -86,7 +105,7 @@ struct CurrentView: View {
         .task {
             if fetchdata.forecastData.isEmpty {
                 do {
-                    try await fetchdata.fetch2Day(); fetchdata.fetchHazard()
+                    try await fetchdata.fetch2Day(); fetchdata.fetchHazard(); fetchdata.fetch7Day()
                     
                 }catch {
                     self.error = error

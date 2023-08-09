@@ -17,17 +17,20 @@ struct WeekDetail: View {
     var minMinT: String
     var Wx: String
     var StartTime: String
-    var EndTime: String
+    //var EndTime: String
     
     var body: some View {
         HStack{
-            Text("8/5   ")
+            Text(getDay(from: StartTime))
+                .padding()
+                .font(.system(size: 20))
             VStack {
                 Image(systemName: Text2Pic(Wx: Wx))
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 20, height: 20)
-                Text(Pop)
+                    .frame(width: 30, height: 30)
+                Text("\(Pop) %")
+                    .font(.system(size: 15))
             }
             HStack{
                 Text(MinT)
@@ -44,7 +47,18 @@ struct WeekDetail: View {
         }
     }
     
-    func Text2Pic(Wx: String) ->String{
+    private func getDay(from timestamp: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if let date = dateFormatter.date(from: timestamp) {
+            let hourFormatter = DateFormatter()
+            hourFormatter.dateFormat = "dd"
+            return hourFormatter.string(from: date)
+        }
+        return ""
+    }
+    
+    private func Text2Pic(Wx: String) ->String{
         var pic = "xmark.icloud.fill"
         switch Wx {
         case"晴天", "晴":
@@ -285,8 +299,8 @@ struct WeekDetail_Previews: PreviewProvider {
             maxMinT: "29",
             minMinT: "23",
             Wx: "陰",
-            StartTime: "2023-08-01 06:00:00",
-            EndTime: "2023-08-01 18:00:00"
+            StartTime: "2023-08-01 06:00:00"
+            //EndTime: "2023-08-01 18:00:00"
         )
     }
 }
