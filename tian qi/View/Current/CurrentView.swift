@@ -30,8 +30,8 @@ struct CurrentView: View {
                         CurrentDetail(
                             temperature: currentData[2].filter("0123456789.".contains) as String,
                             Wx: String(currentData[0]),
-                            MaxT: "33",
-                            MinT: "20"
+                            MaxT: String(fetchdata.MaxT.first ?? "error") ,
+                            MinT: String(fetchdata.MinT.first ?? "error")
                         )
                     } else {
                         Text("Loading...")
