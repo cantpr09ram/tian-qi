@@ -21,9 +21,33 @@ struct WeekDetail: View {
     
     var body: some View {
         HStack{
-            Text(getDay(from: StartTime))
-                .padding()
-                .font(.system(size: 20))
+            if (getDay(from: StartTime).isEmpty){
+                VStack {
+                    Text("00")
+                        .padding()
+                    .font(.system(size: 20))
+                    
+                }
+            }else{
+                VStack {
+                    Text(getDay(from: StartTime))
+                        .padding()
+                    .font(.system(size: 20))
+                    
+                    if(getHour(from: StartTime) == "06" || getHour(from: StartTime) == "12"){
+                        Image(systemName: "sun.min")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                    }else{
+                        Image(systemName: "moon.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                    }
+                }
+            }
+            
             VStack {
                 Image(systemName: Text2Pic(Wx: Wx))
                     .resizable()
@@ -32,6 +56,7 @@ struct WeekDetail: View {
                 Text("\(Pop) %")
                     .font(.system(size: 15))
             }
+            .offset(x:0,y: 7)
             HStack{
                 Text(MinT)
                 ProgressBar(
@@ -43,8 +68,12 @@ struct WeekDetail: View {
                     minMinT: Int(minMinT)!
                 )
                 Text(MaxT)
-            }
+            }.offset(x:0,y:7)
         }
+        .padding(.init(top: 10, leading: 5, bottom: 15, trailing: 8))
+        .background(getHour(from: StartTime) == "18" ? Color("Night"): Color("Day"))
+        .cornerRadius(12)
+            
     }
     
     private func getDay(from timestamp: String) -> String {
@@ -53,6 +82,17 @@ struct WeekDetail: View {
         if let date = dateFormatter.date(from: timestamp) {
             let hourFormatter = DateFormatter()
             hourFormatter.dateFormat = "dd"
+            return hourFormatter.string(from: date)
+        }
+        return ""
+    }
+    
+    private func getHour(from timestamp: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        if let date = dateFormatter.date(from: timestamp) {
+            let hourFormatter = DateFormatter()
+            hourFormatter.dateFormat = "HH"
             return hourFormatter.string(from: date)
         }
         return ""

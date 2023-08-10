@@ -44,7 +44,6 @@ struct weekView: View {
             VStack{
                 ForEach(forecastItems) { item in
                     // Use item.forecast, item.label, item.maxT, item.minT here
-
                     WeekDetail(
                         Pop: String(item.pop),
                         MaxT: String(item.maxT),
@@ -55,46 +54,11 @@ struct weekView: View {
                         minMinT: String(Minmin),
                         Wx: String(item.wx),
                         StartTime: item.label
-                        //EndTime: "2023-08-01 18:00:00"
-                    )
+                       
+                    ).padding(.bottom, 10)
                 }
             }
         }
-        /*
-        ScrollView {
-            VStack{
-                WeekDetail(
-         Wx: String(forecast[0]),
-         PoP: String(forecast[1].filter("0123456789.".contains)),
-                    Pop: "60",
-                    MaxT: "31",
-                    minMaxT: "30",
-                    maxMaxT: "35",
-                    MinT: "23",
-                    maxMinT: "29",
-                    minMinT: "23",
-                    Wx: "陰",
-                    StartTime: "2023-08-01 06:00:00"
-                    //EndTime: "2023-08-01 18:00:00"
-                )
-                .padding(20)
-                
-                WeekDetail(
-                    Pop: "62",
-                    MaxT: "34",
-                    minMaxT: "30",
-                    maxMaxT: "35",
-                    MinT: "25",
-                    maxMinT: "29",
-                    minMinT: "23",
-                    Wx: "陰",
-                    StartTime: "2023-08-01 06:00:00"
-                    //EndTime: "2023-08-01 18:00:00"
-                )
-                .padding(20)
-               
-            }
-        }*/
     }
 }
 
@@ -114,6 +78,9 @@ struct weekView_Previews: PreviewProvider {
     ]
     static var labels = [
         "2023-07-27 6:00:00",
+        "2023-07-27 18:00:00",
+        "2023-07-28 16:00:00",
+        "2023-07-28 28:00:00",
         "2023-07-27 18:00:00",
         "2023-07-28 16:00:00",
         "2023-07-28 28:00:00",
