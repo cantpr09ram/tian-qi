@@ -101,6 +101,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180BE2B52A849B4200E36E55 /* Hazard */ = {
+			isa = PBXGroup;
+			children = (
+				180D21152A739917007D865C /* Hazard.swift */,
+				180D21172A739EBD007D865C /* HazardView.swift */,
+			);
+			path = Hazard;
+			sourceTree = "<group>";
+		};
+		180BE2B62A849B8800E36E55 /* Current */ = {
+			isa = PBXGroup;
+			children = (
+				18D29CDF2A70A9810075A548 /* CurrentView.swift */,
+				18D29CE12A70AADB0075A548 /* CurrentDetail.swift */,
+			);
+			path = Current;
+			sourceTree = "<group>";
+		};
+		180BE2B72A849BC400E36E55 /* ThreeDay */ = {
+			isa = PBXGroup;
+			children = (
+				1810AC772A72081F0078CD70 /* CurrentForecast.swift */,
+				1810AC792A7208D00078CD70 /* ForecastDetail.swift */,
+			);
+			path = ThreeDay;
+			sourceTree = "<group>";
+		};
+		180BE2B82A849BE100E36E55 /* Week */ = {
+			isa = PBXGroup;
+			children = (
+				18B5DB8E2A77BC5300A2289F /* weekView.swift */,
+				18B5DB902A77BF5F00A2289F /* WeekDetail.swift */,
+				189AA0D62A7BADCD00476DEA /* ProgressBar.swift */,
+				18B5DB922A77BF7800A2289F /* WeekList.swift */,
+			);
+			path = Week;
+			sourceTree = "<group>";
+		};
+		180BE2B92A849C1B00E36E55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				188775FF2A63C45F00F26127 /* ContentView.swift */,
+				180BE2BA2A849C4B00E36E55 /* CustomStack */,
+				180BE2B62A849B8800E36E55 /* Current */,
+				180BE2B82A849BE100E36E55 /* Week */,
+				180BE2B72A849BC400E36E55 /* ThreeDay */,
+				180BE2B52A849B4200E36E55 /* Hazard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		180BE2BA2A849C4B00E36E55 /* CustomStack */ = {
+			isa = PBXGroup;
+			children = (
+				186E656E2A7A1F6F0095D637 /* CustomStackView.swift */,
+				186E65702A7A223F0095D637 /* CoustomCorner.swift */,
+			);
+			path = CustomStack;
+			sourceTree = "<group>";
+		};
+		180BE2BB2A849C7A00E36E55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				182A65592A67BC550046673F /* Weather.swift */,
+				18C3C3672A66CB1F00319141 /* DataModel.swift */,
+				18D29CE32A70ADD40075A548 /* FetchLatitudeandLongitude.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		188775F12A63C45F00F26127 = {
 			isa = PBXGroup;
 			children = (
@@ -125,22 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				188775FD2A63C45F00F26127 /* tian_qiApp.swift */,
-				188775FF2A63C45F00F26127 /* ContentView.swift */,
-				18D29CDF2A70A9810075A548 /* CurrentView.swift */,
-				18B5DB8E2A77BC5300A2289F /* weekView.swift */,
-				18B5DB902A77BF5F00A2289F /* WeekDetail.swift */,
-				189AA0D62A7BADCD00476DEA /* ProgressBar.swift */,
-				18B5DB922A77BF7800A2289F /* WeekList.swift */,
-				18D29CE12A70AADB0075A548 /* CurrentDetail.swift */,
-				1810AC772A72081F0078CD70 /* CurrentForecast.swift */,
-				1810AC792A7208D00078CD70 /* ForecastDetail.swift */,
-				180D21152A739917007D865C /* Hazard.swift */,
-				180D21172A739EBD007D865C /* HazardView.swift */,
-				182A65592A67BC550046673F /* Weather.swift */,
-				18C3C3672A66CB1F00319141 /* DataModel.swift */,
-				18D29CE32A70ADD40075A548 /* FetchLatitudeandLongitude.swift */,
-				186E656E2A7A1F6F0095D637 /* CustomStackView.swift */,
-				186E65702A7A223F0095D637 /* CoustomCorner.swift */,
+				180BE2B92A849C1B00E36E55 /* View */,
+				180BE2BB2A849C7A00E36E55 /* Model */,
 				188776012A63C46000F26127 /* Assets.xcassets */,
 				188776032A63C46000F26127 /* Preview Content */,
 			);

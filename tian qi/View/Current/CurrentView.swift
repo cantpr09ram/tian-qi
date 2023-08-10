@@ -73,7 +73,7 @@ struct CurrentView: View {
                     
                     CustomStackView{
                         Label{
-                            Text("7日預報")
+                            Text("7日預報(十二小時)")
                         }icon: {
                             Image(systemName: "tray.2")
                         }

@@ -199,7 +199,7 @@ final class DataModel: ObservableObject {
                                             // Extract temperature and probability of precipitation data
                                             if elementValue.measures == "百分比"{
                                                 if elementValue.value == " "{
-                                                    self.Pop12h.append("0")
+                                                    self.Pop12h.append("?")
                                                 }else{
                                                     self.Pop12h.append(elementValue.value)
                                                 }
@@ -212,8 +212,10 @@ final class DataModel: ObservableObject {
                         }
                     }
                     //print(self.forecastData.prefix(5))
-                    print(self.labels7.count)
-                    print(self.Pop12h.count)
+                    print(self.labels7.prefix(5))
+                    print(self.Pop12h.prefix(5))
+                    print(self.Wx.prefix(5))
+                    print(self.MaxT.prefix(5))
                 }
             }catch {
                 print("Error decoding data: \(error)")
