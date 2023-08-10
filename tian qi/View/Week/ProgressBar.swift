@@ -61,17 +61,17 @@ struct ProgressBar: View {
                 
                 Rectangle()
                     .fill(Color.red)
-                    .frame(width: CGFloat(10+70*(MaxT - minMaxT)/(maxMaxT - minMaxT)), height: 10)
+                    .frame(width: CGFloat(60*(MaxT - minMaxT)/(maxMaxT - minMaxT)), height: 10)
                     .overlay(
                         Rectangle()
                             .fill(Color.red)
                             .frame(width: 10, height: 10)
                             .cornerRadius(10)
-                            .offset(x: CGFloat(10+30*(MaxT - minMaxT)/(maxMaxT - minMaxT)), y: 0)
+                            .offset(x: CGFloat(30*(MaxT - minMaxT)/(maxMaxT - minMaxT)), y: 0)
                         // Adjust the offset based on your desired position
                     )
-                    .offset(x:-10,y:0)
-            }
+                    
+            }.offset(x:-10,y:0)
         }
         .padding()
     }
@@ -81,12 +81,12 @@ struct ProgressBar: View {
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
         ProgressBar(
-            //MaxT
-            MaxT: 32,
+            
+            MaxT: 30,
             minMaxT: 30,
             maxMaxT: 35,
             
-            MinT: 25,
+            MinT: 29,
             maxMinT: 29,
             minMinT: 23
         )
